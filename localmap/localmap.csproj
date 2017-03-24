@@ -17,7 +17,7 @@
     <AssemblyName>localmap</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -185,11 +185,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\calcite-maps-arcgis-4.x.min-v0.3.css" />
     <Content Include="Content\calcite-maps-bootstrap-v0.3.css" />
-    <Content Include="Content\calcite-maps-bootstrap.min-v0.3.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_400.svg" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_600.svg" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_400.svg" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_600.svg" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\calcite\calcite-ui.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\dist\fonts\avenir-next\Avenir_Next_W00_400.eot" />
@@ -220,6 +226,30 @@
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\assets\marquee.less" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\bower.json" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\package.json" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_400.eot" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_400.ttf" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_400.woff" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_400.woff2" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_600.eot" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_600.ttf" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_600.woff" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_600.woff2" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_400.eot" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_400.ttf" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_400.woff" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_400.woff2" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_600.eot" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_600.ttf" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_600.woff" />
+    <Content Include="fonts\avenir-next\Avenir_Next_W00_Italic_600.woff2" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\calcite\calcite-ui.eot" />
+    <Content Include="fonts\calcite\calcite-ui.ttf" />
+    <Content Include="fonts\calcite\calcite-ui.woff" />
+    <Content Include="fonts\calcite\_calcite-ui.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dist\css\calcite-bootstrap-maps-v0.2.css" />
     <Content Include="Scripts\dist\css\calcite-bootstrap-maps.min-v0.2.css" />
@@ -285,6 +315,7 @@
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\Tab.js" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\Tooltip.js" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\Typeahead.js" />
+    <Content Include="Scripts\dojoConfig.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -365,16 +396,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51640</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51640/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
