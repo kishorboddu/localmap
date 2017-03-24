@@ -1,0 +1,89 @@
+﻿  html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #panelLegend .panel-body {
+            background-color: white;
+        }
+
+        #panelInfo .esri-icon.esri-icon-map-pin {
+            margin-right: 10px;
+            font-size: 25px;
+        }
+
+        #panelInfo .info-title {
+            font-size: 20px;
+        }
+
+        .form-box {
+            display: flex;
+            margin: 0px 15px;
+            padding: 15px 0;
+            border: 1px solid rgba(255,255,255,.35);
+            background-color: rgba(130,130,130,.1);
+        }
+
+        .btn-color-close {
+            margin-top: -17px;
+            margin-right: -21px;
+            font-size: 14px;
+            color: #828282;
+        }
+
+            .btn-color-close:hover,
+            .btn-color-close:focus {
+                color: #000;
+            }
+
+        .control-padding-top {
+            padding-top: 5px;
+        }
+
+        .padding-right-none {
+            padding-right: 0;
+        }
+
+        .info-title {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* Color Widget */
+
+        .esri-color-picker .esri-swatch-preview.esri-container,
+        .esri-color-picker .esri-header,
+        .esri-color-picker .esri-footer,
+        .esri-color-picker .esri-palette-options .esri-palette-toggle > input,
+        .dijitReset .dijitToggleButtonIconChar,
+        .esri-color-picker .esri-palette-options .esri-palette-toggle {
+            display: none;
+        }
+
+        .esri-color-picker.esri-container {
+            border: 0;
+            padding: 0;
+            border-radius: 0;
+            background-color: transparent;
+        }
+
+        .esri-color-picker .esri-hex-input {
+            border: 0;
+            width: 100%;
+        }
+
+        .esri-color-picker .esri-swatch-row {
+            line-height: 1;
+        }
+
+        .esri-color-picker .esri-swatch {
+            width: 13px;
+            height: 13px;
+        }
+
+        .esri-color-picker .esri-hex-input .dijitInputInner {
+            font-size: 12px;
+            width: 100%;
+            padding: 2px 4px;
+        }
