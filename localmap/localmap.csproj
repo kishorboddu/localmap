@@ -222,6 +222,7 @@
     <Content Include="Scripts\dist\fonts\calcite\calcite-ui.ttf" />
     <Content Include="Scripts\dist\fonts\calcite\calcite-ui.woff" />
     <Content Include="Scripts\dist\fonts\calcite\_calcite-ui.scss" />
+    <Content Include="Scripts\mapConfig.js" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\assets\datepicker.less" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\assets\marquee.less" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\bower.json" />
@@ -250,6 +251,7 @@
     <Content Include="fonts\calcite\calcite-ui.ttf" />
     <Content Include="fonts\calcite\calcite-ui.woff" />
     <Content Include="fonts\calcite\_calcite-ui.scss" />
+    <Content Include="mapConfig.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dist\css\calcite-bootstrap-maps-v0.2.css" />
     <Content Include="Scripts\dist\css\calcite-bootstrap-maps.min-v0.2.css" />
@@ -370,6 +372,7 @@
     <Content Include="Views\Shared\_BookmarksPartial.cshtml" />
     <Content Include="Views\Shared\_SettingsPartial.cshtml" />
     <Content Include="Views\Map\Index.cshtml" />
+    <Content Include="Views\Shared\_NavbarPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

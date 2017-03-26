@@ -35,10 +35,10 @@ require([
   "dojo/domReady!"
 ], function (Map, Basemap, VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker,
   watchUtils, query, domClass, dom, on, CalciteMapsSettings, PanelSettings) {
-
+    console.log(" the map configuration is : " + mapConfig.initialCoordinates)
     app = {
-        scale: 5000000,
-        lonlat: [-40, -40],
+        scale: mapConfig.initialScale,
+        lonlat: mapConfig.initialCoordinates,
         mapView: null,
         mapDiv: "mapViewDiv",
         mapFL: null,

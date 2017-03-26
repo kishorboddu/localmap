@@ -1,0 +1,41 @@
+﻿<nav class="navbar navbar-fixed-top calcite-navbar calcite-bg-custom calcite-text-light" style="background-color: rgb(76, 76, 76);">
+    <!-- Menu -->
+    <div class="dropdown calcite-dropdown calcite-bg-light calcite-text-dark" role="presentation">
+        <!--a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"-->
+        <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+            <div class="calcite-dropdown-toggle">
+                <span class="sr-only">Toggle dropdown menu</span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a role="button" data-target="#modalSplash" data-toggle="modal" aria-haspopup="true"> About</a></li>
+            <li><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab"> Map</a></li>
+            <li><a class="hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab"> Scene</a></li>
+            <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
+            <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+            <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
+            <li><a role="button" data-target="#panelBookmarks" aria-haspopup="true"><span class="glyphicon glyphicon-book"></span> Bookmarks</a></li>
+            <li><a role="button" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Legend</a></li>
+            <li><a role="button" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
+            <li><a role="button" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
+            <li><a role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+            <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
+        </ul>
+    </div>
+    <!-- Title -->
+    <div class="calcite-title calcite-overflow-hidden">
+        <span class="calcite-title-main">Local Map</span>
+        <span class="calcite-title-divider hidden-xs"></span>
+        <span class="calcite-title-sub hidden-xs">Council That Works For you ....</span>
+    </div>
+    <!-- Nav -->
+    <ul class="calcite-nav nav navbar-nav">
+        <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
+        <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>
+        <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
+    </ul>
+</nav><!--/.navbar -->
