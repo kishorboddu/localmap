@@ -4,6 +4,7 @@ require([
   // ArcGIS
   "esri/Map",
   "esri/Basemap",
+   "esri/layers/MapImageLayer",
   "esri/layers/VectorTileLayer",
   "esri/views/MapView",
   "esri/views/SceneView",
@@ -15,6 +16,7 @@ require([
   "esri/core/watchUtils",
   "dojo/query",
   "dojo/dom-class",
+  "dojo/dom-construct",
   "dojo/dom",
   "dojo/on",
 
@@ -33,8 +35,8 @@ require([
 
   // Dojo
   "dojo/domReady!"
-], function (Map, Basemap, VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker,
-  watchUtils, query, domClass, dom, on, CalciteMapsSettings, PanelSettings) {
+], function (Map, Basemap, MapImageLayer,VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker,
+  watchUtils, query, domClass, domConstruct, dom, on, CalciteMapsSettings, PanelSettings) {
     console.log(" the map configuration is : " + mapConfig.initialCoordinates)
     app = {
         scale: mapConfig.initialScale,
@@ -50,7 +52,7 @@ require([
         searchWidgetNav: null,
         searchWidgetPanel: null,
         searchWidgetSettings: null,
-        basemapSelected: "gray-vector",
+        basemapSelected: "towerColour",
         basemapSelectedAlt: "gray",
         padding: {
             top: 85,
@@ -85,13 +87,36 @@ require([
     // App
     //----------------------------------
     // ---------- For Test Only ----- 
-    //var customBasemapLayer = new MapImageLayer({ url: "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/Ordnance_Survey_MasterMap_Colour_With_TFL_Data/MapServer" });
-    // var customeBasemap = new Basemap({
-    //    baseLayers: [customBasemapLayer],
-    //  title: "Example Basemap",
-    // id: "terrain",
-    //  thumbnailUrl: "https://stamen-tiles.a.ssl.fastly.net/terrain/10/177/409.png"
-    // });
+    var baseMaps = [];
+    dojo.forEach(mapConfig.baseMaps, function (bm, i) {
+        baseMaps.push({
+            "id": bm.id,
+            "basemap": new Basemap({
+                baseLayers: [new MapImageLayer({ url: bm.url })],
+                title: bm.title,
+                id: bm.id,
+                thumbnailUrl: "https://stamen-tiles.a.ssl.fastly.net/terrain/10/177/409.png"
+            })
+        });
+       
+    });
+    app.basemaps = baseMaps;
+    var customBasemapLayer = new MapImageLayer({ url: "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/Ordnance_Survey_MasterMap_Colour_With_TFL_Data/MapServer" });
+    var customBasemapLayer1 = new MapImageLayer({ url: "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/OS_Greyscale/MapServer" });
+    var customeBasemap = new Basemap({
+        baseLayers: [customBasemapLayer],
+      title: "Example Basemap 0",
+      id: "terrific",
+      thumbnailUrl: "https://stamen-tiles.a.ssl.fastly.net/terrain/10/177/409.png"
+     });
+
+    var customeBasemap1 = new Basemap({
+        baseLayers: [customBasemapLayer1],
+        title: "Example Basemap 1",
+        id: "terrific",
+        thumbnailUrl: "https://stamen-tiles.a.ssl.fastly.net/terrain/10/177/409.png"
+    });
+
     // -----End Of Test
     initializeMapViews();
     initializeAppUI();
@@ -111,7 +136,6 @@ require([
     //----------------------------------
 
     function initializeMapViews() {
-
         //2D - MapView
         app.mapView = new MapView({
             container: app.mapDiv,
@@ -172,6 +196,7 @@ require([
         setColorPicker();
         setPopupPanelEvents();
         setPopupEvents();
+        createMouseLocation();
     }
 
     //----------------------------------
@@ -241,12 +266,28 @@ require([
         query("#selectBasemapPanel, #settingsSelectBasemap").on("change", function (e) {
             app.basemapSelected = e.target.options[e.target.selectedIndex].dataset.vector;
             app.basemapSelectedAlt = e.target.value;
-            setBasemaps();
+            var isCustomBaseMap = e.target.options[e.target.selectedIndex].dataset.custom;
+            console.log(isCustomBaseMap);
+            setBasemaps(isCustomBaseMap);
         });
 
-        function setBasemaps() {
-            app.mapView.map.basemap = app.basemapSelected;
-            app.sceneView.map.basemap = app.basemapSelectedAlt;
+        function setBasemaps(isCustomBaseMap) {
+            if (isCustomBaseMap)
+            {
+                var customBasemap;
+
+                    dojo.map(app.basemaps, function (item) {
+                        if (item.id === app.basemapSelected) {
+                            customBasemap = item.basemap
+                            return false;
+                        }
+                });
+                app.mapView.map.basemap = customBasemap;
+            }
+            else {
+                app.mapView.map.basemap = app.basemapSelected;
+                app.sceneView.map.basemap = app.basemapSelectedAlt;
+            }
         }
     }
 
@@ -357,6 +398,13 @@ require([
         }.bind(this));
     }
 
+    function createMouseLocation() {
+        console.log(query(".esri-attribution__sources"));
+       // var parent = query(".esri-attribution__sources")[0]
+        //console.log(parent);
+        //var n = domConstruct.create("div", { innerHTML: "helloWorld" });
+        //domConstruct.place(n, parent, "after");
+    }
     //----------------------------------
     // Toggle nav
     //----------------------------------

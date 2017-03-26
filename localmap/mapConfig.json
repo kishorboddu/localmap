@@ -1,4 +1,21 @@
 ﻿{
-  "initialCoordinates": [ 78.53,17.10 ],
-  "initialScale": 18000000
+  "initialCoordinatesX": [ 78.53,17.10 ],
+  "initialScaleX": 18000000,
+  "initialCoordinates": [ 538168, 177305 ],
+  "initialScale": 8000,
+  "baseMaps": [
+    {
+      "id": "towerColour",
+      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/Ordnance_Survey_MasterMap_Colour_With_TFL_Data/MapServer",
+      "title" :  "towerColour"
+    },
+
+    {  "id": "towerGray",
+      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/OS_Greyscale/MapServer",
+      "title": "towerGray"
+
+    }
+
+  ]
+  
 }
