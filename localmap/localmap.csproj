@@ -196,6 +196,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\dist\js\fourkb\customBasemaps.js" />
     <Content Include="Scripts\mapConfig.js" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\assets\datepicker.less" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\assets\marquee.less" />

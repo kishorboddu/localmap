@@ -9,7 +9,7 @@ namespace localmap.Controllers
     public class MapController : Controller
     {
         // GET: Map
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             return View();
         }

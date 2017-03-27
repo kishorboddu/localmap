@@ -11,5 +11,9 @@
     {
         name: "calcite-settings",
         location: location.origin + "/Scripts/dist/settings"
+    },
+    {
+        name: "fourkb-basemaps",
+        location: location.origin + "/Scripts/dist/js/fourkb"
     }]
 };
