@@ -15,6 +15,7 @@ require([
   "esri/widgets/ColorPicker",
   "esri/core/watchUtils",
   "dojo/query",
+  "dojo/html",
   "dojo/dom-class",
   "dojo/dom-construct",
   "dojo/dom",
@@ -38,7 +39,7 @@ require([
   // Dojo
   "dojo/domReady!"
 ], function (Map, Basemap, MapImageLayer,VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker,
-  watchUtils, query, domClass, domConstruct, dom, on, CalciteMapsSettings, PanelSettings, CustomBasemaps) {
+  watchUtils, query, html,domClass, domConstruct, dom, on, CalciteMapsSettings, PanelSettings, CustomBasemaps) {
     console.log(" the map configuration is : " + mapConfig.initialCoordinates)
     app = {
         scale: mapConfig.initialScale,
@@ -102,6 +103,11 @@ require([
         });
        
     });*/
+    dojo.forEach(baseMaps, function (bm) {
+        bm.basemap.then(createMouseLocation, function () {
+            Console.log("error occured while loading basemap");
+        })
+    })
     app.basemaps = baseMaps;
    /* var customBasemapLayer = new MapImageLayer({ url: "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/Ordnance_Survey_MasterMap_Colour_With_TFL_Data/MapServer" });
     var customBasemapLayer1 = new MapImageLayer({ url: "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/OS_Greyscale/MapServer" });
@@ -198,7 +204,7 @@ require([
         setColorPicker();
         setPopupPanelEvents();
         setPopupEvents();
-        createMouseLocation();
+        //createMouseLocation();
     }
 
     //----------------------------------
@@ -304,7 +310,7 @@ require([
         //TODO - Search Nav + Panel (detach/attach)
         app.searchWidgetNav = createSearchWidget("searchNavDiv", true);
         app.searchWidgetPanel = createSearchWidget("searchPanelDiv", true);
-        app.searchWidgetSettings = createSearchWidget("settingsSearchDiv", false);
+        app.searchWidgetSettings = createSearchWidget("settingsSearchDiv", true);
 
         // Create widget
         function createSearchWidget(parentId, showPopup) {
@@ -403,12 +409,20 @@ require([
     }
 
     function createMouseLocation() {
-        console.log(query(".esri-attribution__sources"));
-       // var parent = query(".esri-attribution__sources")[0]
-        //console.log(parent);
-        //var n = domConstruct.create("div", { innerHTML: "helloWorld" });
-        //domConstruct.place(n, parent, "after");
+      var parent = query(".esri-attribution__sources")[0]
+        var item = query('#mousePosition');
+        console.log('item is...');
+        console.log(item)
+        if(item && item.length == 0){
+            var n = domConstruct.toDom("<div id=\"mousePosition\"></div>");
+            domConstruct.place(n, parent, "after");
+         }
     }
+
+    app.mapView.on('pointer-move', function (evt) {
+        var point = app.mapView.toMap({ x: evt.x, y: evt.y });
+        html.set(dom.byId("mousePosition"), point.x.toFixed(0) + " " + point.y.toFixed(0));
+    });
     //----------------------------------
     // Toggle nav
     //----------------------------------
