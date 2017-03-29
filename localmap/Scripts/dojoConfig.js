@@ -13,7 +13,7 @@
         location: location.origin + "/Scripts/dist/settings"
     },
     {
-        name: "fourkb-basemaps",
+        name: "fourkb-layers",
         location: location.origin + "/Scripts/dist/js/fourkb"
     }]
 };

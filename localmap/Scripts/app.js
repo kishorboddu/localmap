@@ -25,8 +25,10 @@ require([
   "calcite-maps/calcitemaps-v0.3",
   //"calcite-maps/calcitemaps",
   "calcite-settings/panelsettings",
-  //fourkb-basemaps
-  "fourkb-basemaps/customBasemaps",
+
+  //fourkb
+  "fourkb-layers/customBasemaps",
+  "fourkb-layers/mapLayers",
 
   // Boostrap
   "bootstrap/Collapse",
@@ -39,8 +41,7 @@ require([
   // Dojo
   "dojo/domReady!"
 ], function (Map, Basemap, MapImageLayer,VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker,
-  watchUtils, query, html,domClass, domConstruct, dom, on, CalciteMapsSettings, PanelSettings, CustomBasemaps) {
-    console.log(" the map configuration is : " + mapConfig.initialCoordinates)
+  watchUtils, query, html, domClass, domConstruct, dom, on, CalciteMapsSettings, PanelSettings, CustomBasemaps, mapLayers) {
     app = {
         scale: mapConfig.initialScale,
         lonlat: mapConfig.initialCoordinates,
@@ -90,41 +91,15 @@ require([
     // App
     //----------------------------------
     // ---------- For Test Only ----- 
-    var baseMaps = CustomBasemaps;
-    /*dojo.forEach(mapConfig.baseMaps, function (bm, i) {
-        baseMaps.push({
-            "id": bm.id,
-            "basemap": new Basemap({
-                baseLayers: [new MapImageLayer({ url: bm.url })],
-                title: bm.title,
-                id: bm.id,
-                thumbnailUrl: "https://stamen-tiles.a.ssl.fastly.net/terrain/10/177/409.png"
+    if (CustomBasemaps) {
+        dojo.forEach(CustomBasemaps, function (bm) {
+            bm.basemap.then(createMouseLocation, function () {
+                Console.log("error occured while loading basemap");
             })
-        });
-       
-    });*/
-    dojo.forEach(baseMaps, function (bm) {
-        bm.basemap.then(createMouseLocation, function () {
-            Console.log("error occured while loading basemap");
         })
-    })
-    app.basemaps = baseMaps;
-   /* var customBasemapLayer = new MapImageLayer({ url: "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/Ordnance_Survey_MasterMap_Colour_With_TFL_Data/MapServer" });
-    var customBasemapLayer1 = new MapImageLayer({ url: "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/OS_Greyscale/MapServer" });
-    var customeBasemap = new Basemap({
-        baseLayers: [customBasemapLayer],
-      title: "Example Basemap 0",
-      id: "terrific",
-      thumbnailUrl: "https://stamen-tiles.a.ssl.fastly.net/terrain/10/177/409.png"
-     });
-
-    var customeBasemap1 = new Basemap({
-        baseLayers: [customBasemapLayer1],
-        title: "Example Basemap 1",
-        id: "terrific",
-        thumbnailUrl: "https://stamen-tiles.a.ssl.fastly.net/terrain/10/177/409.png"
-    });
-    */
+        app.basemaps = CustomBasemaps;
+    }
+   app.customMapLayers = mapLayers;
     // -----End Of Test
     initializeMapViews();
     initializeAppUI();
@@ -416,7 +391,8 @@ require([
         if(item && item.length == 0){
             var n = domConstruct.toDom("<div id=\"mousePosition\"></div>");
             domConstruct.place(n, parent, "after");
-         }
+        }
+       
     }
 
     app.mapView.on('pointer-move', function (evt) {

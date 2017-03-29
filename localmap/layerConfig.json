@@ -1,0 +1,90 @@
+﻿{
+  "map_layers": [
+    {
+      "type": "group",
+      "title": "Group One",
+      "layer_info": [
+        {
+          "name": "Group One Layer A",
+          "url": "",
+          "queryable": false,
+          "visible": false
+        },
+        {
+          "name": "Group One Layer B",
+          "url": "",
+          "queryable": true,
+          "visible": false
+        }
+
+      ]
+    },
+    {
+      "type": "layer",
+      "layer_info": {
+        "name": "some layer",
+        "url": "",
+        "queryable": true,
+        "visible": false
+      }
+    },
+    {
+      "type": "group",
+      "title": "Group Two",
+      "layer_info": [
+        {
+          "name": "Group Two Layer A",
+          "url": "",
+          "queryable": false,
+          "visible": true
+        },
+        {
+          "name": "Group Two Layer B",
+          "url": "",
+          "queryable": true,
+          "visible": false
+        }
+
+      ]
+    },
+    {
+      "type": "layer",
+      "layer_info": {
+        "name": "another layer",
+        "url": "",
+        "queryable": false,
+        "visible": true
+      }
+
+
+    }
+
+  ],
+  "layers": [
+    {
+      "title": "Council Democracy",
+      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/TowerHamletsMaps/Council_Democracy/MapServer",
+      "sublayers": [],
+      "visible": true
+    },
+    {
+      "name": "Environment Planning",
+      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/TowerHamletsMaps/Environment_Planning/MapServer",
+      "sublayers": [
+        {
+          "id": 0,
+          "title": "Ward Boundaries",
+          "visible": false
+        },
+        {
+          "id": 3,
+          "title": "Masterplan areas",
+          "visible": true
+        }
+
+      ]
+    }
+  ]
+
+
+}

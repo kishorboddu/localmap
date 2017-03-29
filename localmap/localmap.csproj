@@ -185,6 +185,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\calcite-maps-arcgis-4.x.min-v0.3.css" />
     <Content Include="Content\calcite-maps-bootstrap-v0.3.css" />
+    <Content Include="Content\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="Content\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\avenir-next\Avenir_Next_W00_400.svg" />
     <Content Include="fonts\avenir-next\Avenir_Next_W00_600.svg" />
@@ -197,6 +202,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\dist\js\fourkb\customBasemaps.js" />
+    <Content Include="Scripts\dist\js\fourkb\mapLayers.js" />
+    <Content Include="Scripts\layerConfig.js" />
     <Content Include="Scripts\mapConfig.js" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\assets\datepicker.less" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\assets\marquee.less" />
@@ -307,7 +314,31 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\font\FontAwesome.otf" />
+    <Content Include="Content\font-awesome\less\bootstrap.less" />
+    <Content Include="Content\font-awesome\less\core.less" />
+    <Content Include="Content\font-awesome\less\extras.less" />
+    <Content Include="Content\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\font-awesome\less\icons.less" />
+    <Content Include="Content\font-awesome\less\mixins.less" />
+    <Content Include="Content\font-awesome\less\path.less" />
+    <Content Include="Content\font-awesome\less\variables.less" />
+    <Content Include="Content\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="Content\font-awesome\scss\_core.scss" />
+    <Content Include="Content\font-awesome\scss\_extras.scss" />
+    <Content Include="Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome\scss\_path.scss" />
+    <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <Content Include="layerConfig.json" />
     <None Include="Project_Readme.html" />
+    <Content Include="Views\Shared\_ModalPartial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
