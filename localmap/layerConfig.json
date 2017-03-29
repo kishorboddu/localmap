@@ -63,13 +63,13 @@
   "layers": [
     {
       "title": "Council Democracy",
-      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/TowerHamletsMaps/Council_Democracy/MapServer",
+      "url": "",
       "sublayers": [],
       "visible": true
     },
     {
       "name": "Environment Planning",
-      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/TowerHamletsMaps/Environment_Planning/MapServer",
+      "url": "",
       "sublayers": [
         {
           "id": 0,
