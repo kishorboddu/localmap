@@ -63,13 +63,20 @@
   "layers": [
     {
       "title": "Council Democracy",
-      "url": "",
-      "sublayers": [],
+      "layerType": "featurelayer",
+      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/TowerHamletsMaps/Council_Democracy/MapServer/0",
       "visible": true
     },
     {
-      "name": "Environment Planning",
-      "url": "",
+      "titile": "Ward Boundaries",
+      "layerType": "featurelayer",
+      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/TowerHamletsMaps/Environment_Planning/MapServer/0",
+      "visible": true
+    },
+     {
+      "titile": "Environment Planning",
+      "layerType": "mapimagelayer",
+      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/TowerHamletsMaps/Environment_Planning/MapServer/",
       "sublayers": [
         {
           "id": 0,

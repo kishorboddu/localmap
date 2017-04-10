@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "localmap", "localmap\localm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "localmap.Tests", "localmap.Tests\localmap.Tests.csproj", "{3CBBFFA4-401E-45E3-89FC-33CAF186B180}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "localmap.data", "localmap.data\localmap.data.csproj", "{4533F98C-5B4F-41A4-A2B2-8F898584BE31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3CBBFFA4-401E-45E3-89FC-33CAF186B180}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CBBFFA4-401E-45E3-89FC-33CAF186B180}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CBBFFA4-401E-45E3-89FC-33CAF186B180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4533F98C-5B4F-41A4-A2B2-8F898584BE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4533F98C-5B4F-41A4-A2B2-8F898584BE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4533F98C-5B4F-41A4-A2B2-8F898584BE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4533F98C-5B4F-41A4-A2B2-8F898584BE31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -29,6 +29,7 @@ require([
   //fourkb
   "fourkb-layers/customBasemaps",
   "fourkb-layers/mapLayers",
+  "fourkb-layers/streetView",
 
   // Boostrap
   "bootstrap/Collapse",
@@ -41,7 +42,7 @@ require([
   // Dojo
   "dojo/domReady!"
 ], function (Map, Basemap, MapImageLayer,VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker,
-  watchUtils, query, html, domClass, domConstruct, dom, on, CalciteMapsSettings, PanelSettings, CustomBasemaps, mapLayers) {
+  watchUtils, query, html, domClass, domConstruct, dom, on, CalciteMapsSettings, PanelSettings, CustomBasemaps, mapLayers, StreetView) {
     app = {
         scale: mapConfig.initialScale,
         lonlat: mapConfig.initialCoordinates,
@@ -84,7 +85,9 @@ require([
             }
         },
         colorPickerWidget: null,
-        panelSettings: null
+        panelSettings: null,
+        overViewMapDiv: "overViewMap",
+        overViewMapView:null
     }
 
     //----------------------------------
@@ -92,11 +95,6 @@ require([
     //----------------------------------
     // ---------- For Test Only ----- 
     if (CustomBasemaps) {
-        dojo.forEach(CustomBasemaps, function (bm) {
-            bm.basemap.then(createMouseLocation, function () {
-                Console.log("error occured while loading basemap");
-            })
-        })
         app.basemaps = CustomBasemaps;
     }
    app.customMapLayers = mapLayers;
@@ -128,6 +126,20 @@ require([
             padding: app.padding,
             ui: app.uiPadding,
             popup: new Popup(app.popupOptions),
+            visible: true
+        });
+
+        app.overViewMapView = new MapView({
+            container: app.overViewMapDiv,
+            map: new Map({ basemap: app.basemapSelected, constraints: { snapToZoom: false } }),
+            scale: app.scale,
+            center: app.lonlat,
+            padding: {
+                top:0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
             visible: true
         });
 
@@ -191,6 +203,15 @@ require([
         // Tab event
         query(".calcite-navbar li a[data-toggle='tab']").on("show.bs.tab", function (e) {
             // Tabs
+            if (e.target.text.indexOf("Street") > -1) {
+               // alert('Selected street view')
+                SwithToGoogleStreetView();
+                return false;
+            }
+            else if (e.target.text.indexOf("Bing") > -1) {
+                alert('Selected Bingmap View')
+                return false;
+            }
             syncTabs(e);
             // Views
             if (e.target.text.indexOf("Map") > -1) {
@@ -207,6 +228,14 @@ require([
                 visible: false
             });
         });
+        //Google street view
+
+        function SwithToGoogleStreetView() {
+            on.emit(query("#googleStreetViewNavbar")[0], "click", {
+                bubbles: true,
+                cancelable: true
+            });
+        }
 
         // Tabs
         function syncTabs(e) {
@@ -382,23 +411,27 @@ require([
             app.activeView.popup.reposition();
         }.bind(this));
     }
-
-    function createMouseLocation() {
-      var parent = query(".esri-attribution__sources")[0]
-        var item = query('#mousePosition');
-        console.log('item is...');
-        console.log(item)
-        if(item && item.length == 0){
-            var n = domConstruct.toDom("<div id=\"mousePosition\"></div>");
-            domConstruct.place(n, parent, "after");
-        }
-       
-    }
-
+    // fourkb customization
+    //----------------
     app.mapView.on('pointer-move', function (evt) {
         var point = app.mapView.toMap({ x: evt.x, y: evt.y });
         html.set(dom.byId("mousePosition"), point.x.toFixed(0) + " " + point.y.toFixed(0));
     });
+
+    app.customMapLayers = mapLayers;
+    app.basemaps = CustomBasemaps;
+    if (app.customMapLayers && app.customMapLayers.length > 0) {
+        dojo.forEach(app.customMapLayers, function (ml) {
+            //app.mapView.map.layers.add(ml);
+        })
+      
+    }
+   
+
+   
+    //-----------------------
+    // End Of Fourkbs customization
+
     //----------------------------------
     // Toggle nav
     //----------------------------------
@@ -424,5 +457,29 @@ require([
     //   // Menu animcation
     //   query(".calcite-dropdown-toggle").toggleClass("open");
     // });
+
+    app.mapView.on("click", function (evt) {
+        // Print out the current state of the
+        // drag event.
+      //  console.log("drag state", evt.action);
+        if (evt && evt.mapPoint)
+            sv.getLatLongsFromOSGB(evt.mapPoint.x, evt.mapPoint.y);
+    });
+
+    app.mapView.on("drag", function (evt) {
+        // Print out the current state of the
+        // drag event.
+        //  console.log("drag state", evt.action);
+        if (evt && evt.action && evt.action === "end")
+            app.overViewMapView.center = app.mapView.center;
+    });
+
+
+
+    var sv = new StreetView({ app: app , panorama : _panoramaX});
+
+  
+       
+
 
 });

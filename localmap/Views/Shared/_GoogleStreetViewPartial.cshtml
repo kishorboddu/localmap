@@ -1,0 +1,34 @@
+﻿<div id="panelGoogleStreetView" class="panel collapse">
+    <div id="headingGoogleStreetView" class="panel-heading" role="tab">
+        <div class="panel-title">
+            <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseGoogleStreetView" aria-expanded="false" aria-controls="collapseBookmarks"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><span class="panel-label">Google StreetView</span></a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelGoogleStreetView"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
+        </div>
+    </div>
+    <div id="collapseGoogleStreetView" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBookmarks">
+        <div class="panel-body" style="width:500px;height:500px" id="street-view">
+                  
+        </div>
+    </div>
+</div>
+<script>
+    var _panoramaX;
+      //lat: 1.622, lng: 4.829
+      function initialize() {
+        _panoramaX = new google.maps.StreetViewPanorama(
+            document.getElementById('street-view'),
+            {
+                position: {
+                    lat:51.50732719559761, lng: -0.017661908876714462
+                },
+              pov: {heading: 0, pitch: 0},
+              zoom: 1
+            });
+
+       /* _panorama.addListener('position_changed', function () {
+           console.log(_panorama.getPosition().lat());
+        });*/
+      }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi_yyd0_R0sf6862IalQcHF-qT_R1-Qn4&callback=initialize"></script>

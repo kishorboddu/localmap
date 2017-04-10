@@ -1,7 +1,15 @@
-﻿<div class="calcite-map calcite-map-absolute">
+﻿@model localmap.data.Models.LayerInfo
+
+<script>
+    var layersss = @Html.Raw(Json.Encode(Model));
+    console.log("layerssssssssssssssssss are : " + layersss);
+
+</script>
+<div class="calcite-map calcite-map-absolute">
     <div id="tabContainer" class="tab-content">
         <div id="2dTab" class="tab-pane fade in active" role="tabpanel">
             <div id="mapViewDiv"></div>
+           <div id="mousePosition" class="mapCoordinates"></div>
         </div>
         <div id="3dTab" class="tab-pane fade" role="tabpanel">
             <div id="sceneViewDiv"></div>

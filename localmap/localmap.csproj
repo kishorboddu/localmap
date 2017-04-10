@@ -202,7 +202,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\dist\js\fourkb\customBasemaps.js" />
+    <Content Include="Scripts\dist\js\fourkb\layerUIBuilder.js" />
     <Content Include="Scripts\dist\js\fourkb\mapLayers.js" />
+    <Content Include="Scripts\dist\js\fourkb\streetView.js" />
     <Content Include="Scripts\layerConfig.js" />
     <Content Include="Scripts\mapConfig.js" />
     <Content Include="Scripts\dist\vendor\dojo-bootstrap\assets\datepicker.less" />
@@ -339,6 +341,14 @@
     <Content Include="layerConfig.json" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\_ModalPartial.cshtml" />
+    <Content Include="Views\Shared\_GoogleStreetViewPartial.cshtml" />
+    <Content Include="Views\Shared\_OverViewMapPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\localmap.data\localmap.data.csproj">
+      <Project>{4533f98c-5b4f-41a4-a2b2-8f898584be31}</Project>
+      <Name>localmap.data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

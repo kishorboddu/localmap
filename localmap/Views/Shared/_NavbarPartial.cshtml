@@ -24,6 +24,8 @@
             <li><a role="button" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
             <li><a role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
             <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
+            <li><a role="button" id="googleStreetViewNavbar" data-target="#panelGoogleStreetView" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Street View</a></li>
+            <li><a role="button" id="overViewMapNavbar" data-target="#panelOverViewMap" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Overview Map</a></li>
         </ul>
     </div>
     <!-- Title -->
@@ -32,26 +34,48 @@
         <span class="calcite-title-divider hidden-xs"></span>
         <span class="calcite-title-sub hidden-xs"></span>
 
-        <div class="calcite-title  dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Dropdown
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li  class="glyphicon glyphicon-share"><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-        </div>
-    </div>
         
-   
-    <!-- Nav -->
-    <ul class="calcite-nav nav navbar-nav">
-        <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
-        <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>
-        <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
-    </ul>
+    </div>
+    <div class="calcite-title  dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Dropdown
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li class="glyphicon glyphicon-share"><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+    <div class="calcite-title  dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-tooltip="tooltip" title="Open another map at the same location."><span class="glyphicon glyphicon-globe"></span>Map <b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+
+            <li class="dropdown-submenu"><a tabindex="-1" href="#">General<span class="navbar-right"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="#" id="boroughMap">Borough map</a></li>
+                        <li><a tabindex="-1" href="#" id="adminBoundaries">Administrative boundaries</a></li>
+                        <li><a tabindex="-1" href="#" id="polling">Polling</a></li>
+                        <li><a tabindex="-1" href="#" id="cil">Community Infrastructure Levy</a></li>
+                  </ul>
+            </li>
+            <li class="dropdown-submenu"><a tabindex="-1" href="#">Education<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="#" id="schools">Schools</a></li></ul></li>
+            <li class="dropdown-submenu"><a tabindex="-1" href="#">Highways<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="#" id="terrier">Highway responsibility</a></li><li><a tabindex="-1" href="#" id="drainagepub">Land drainage assets</a></li><li><a tabindex="-1" href="#" id="parking">Parking</a></li></ul></li>
+            <li class="dropdown-submenu"><a tabindex="-1" href="#">Planning<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="#" id="ldf">Local Development Framework proposals map</a></li><li><a tabindex="-1" href="#" id="heritage">Heritage</a></li><li><a tabindex="-1" href="#" id="tpo">Tree Preservation Orders</a></li><li><a tabindex="-1" href="#" id="article4">Article 4 areas</a></li></ul></li>
+            <li class="dropdown-submenu"><a tabindex="-1" href="#">Environmental health<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="#" id="airQuality">Air quality monitoring sites</a></li></ul></li>
+            <li class="dropdown-submenu"><a tabindex="-1" href="#">Borough valuers<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="#" id="valuers">Council ownership</a></li></ul></li>
+        </ul>
+        </div>
+
+
+        <!-- Nav -->
+        <ul class="calcite-nav nav navbar-nav">
+            <li><a id="gstreetview" class="hidden-xs hidden-sm" href="#" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="Google Street View" data-placement="bottom">Street View</a></li>
+            <li><a id="bingmap" class="hidden-xs hidden-sm" href="#" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="Bing Map" data-placement="bottom">Bing Map</a></li>
+            <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
+            <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>
+            <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
+        </ul>
 </nav><!--/.navbar -->

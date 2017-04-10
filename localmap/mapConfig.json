@@ -1,17 +1,17 @@
 ﻿{
   "initialCoordinatesX": [ 78.53,17.10 ],
   "initialScaleX": 18000000,
-  "initialCoordinates": [ 538168, 177305 ],
+  "initialCoordinates": [ 519633, 165986 ],
   "initialScale": 8000,
   "baseMaps": [
     {
       "id": "towerColour",
-      "url": "",
+      "url": "http://gis.towerhamlets.gov.uk/arcgis/rest/services/CachedMaps/Ordnance_Survey_MasterMap_Colour_With_TFL_Data/MapServer",
       "title" :  "towerColour"
     },
 
     {  "id": "towerGray",
-      "url": "",
+      "url": "https://maps.kingston.gov.uk/arcgis/rest/services/BaseMaps/BaseMaps/MapServer",
       "title": "towerGray"
 
     }

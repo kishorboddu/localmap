@@ -43,6 +43,8 @@
 
     @RenderBody()
     <!-- Panel Container -->
+   
+   
 
     <div class="calcite-panels calcite-panels-right calcite-bg-custom calcite-text-light panel-group" role="tablist" aria-multiselectable="true" style="background-color: rgb(76, 76, 76);">
 
@@ -76,10 +78,13 @@
         <!-- Panel - Settings -->
         
         @Html.Partial("_SettingsPartial")
+         <!-- fourkb add-ons-->
+        @Html.Partial("_GoogleStreetViewPartial")
+     
 
 <!-- /.panel -->
     </div> <!-- /.calcite-panels group-->
-
+   
     <!-- dojoConfig -->
     <script src="~/Scripts/dojoConfig.js"></script>
 
@@ -92,5 +97,8 @@
     <!-- app.js -->
     <script src="~/Scripts/app.js">
     </script>
+
+    
+
 </body>
 </html>

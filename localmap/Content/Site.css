@@ -87,3 +87,35 @@
             width: 100%;
             padding: 2px 4px;
         }
+.fourkbs-map-resize {
+    width:20%;
+    height:20%;
+    margin-left:20px;
+    margin-bottom:20px;
+    border:solid 5px red;
+
+}
+.mapCoordinates{
+    display: inline;
+    position: absolute;
+    color: rgb(0,0,0);
+    font-weight: bold;
+    font-size: 11px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 6;
+    font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+    align-self: flex-start;
+    flex: 1 0;
+}
+
+.overViewMap{
+    padding: 2px;
+    margin: 0;
+    height: 98%;
+    width: 98%;
+}
